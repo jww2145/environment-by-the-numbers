@@ -7,7 +7,3 @@
 
 <Header />
 <SenateChild />
-
-<style>
-
-</style>

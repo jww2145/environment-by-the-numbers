@@ -1,4 +1,5 @@
 <script>
+    import Senators from "./Senators.svelte";
     import Papa from 'papaparse';
 
     let senator_data = null
@@ -35,6 +36,7 @@
     <div class = 'container-child-left'>
         <p class = 'senator-intro'>The Senate: Everything You Need to Know</p><p class = 'senator-sub-intro'>Click a senator for more information!</p>
     </div>
+    <div class = 'container-child-right'><Senators on:selectSenator={handleSelectSenator}/></div>
 </div>
 
 <style>
