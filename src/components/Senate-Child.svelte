@@ -1,9 +1,13 @@
 <script>
     import Senators from "./Senators.svelte";
+    import SenatorCard from "./Senator-Card.svelte";
     import Papa from 'papaparse';
 
-    let senator_data = null
+    export const prerender = true;
 
+
+    let senator_data = null
+    let progress = null
     function handleSelectSenator(event) {
         const senatorData = event.detail.senator;
 
@@ -17,6 +21,7 @@
             .catch(err => console.log(err))
         response.then(v => findSenator(v,last))
         
+        // Now you can use senatorData as needed, e.g., pass it to another component or use it in this component
     }
 
     function findSenator(arr,name){
@@ -35,6 +40,7 @@
 <div class = 'container'>
     <div class = 'container-child-left'>
         <p class = 'senator-intro'>The Senate: Everything You Need to Know</p><p class = 'senator-sub-intro'>Click a senator for more information!</p>
+        <SenatorCard senator={senator_data} progress={progress}/>
     </div>
     <div class = 'container-child-right'><Senators on:selectSenator={handleSelectSenator}/></div>
 </div>
