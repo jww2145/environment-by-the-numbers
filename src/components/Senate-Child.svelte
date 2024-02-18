@@ -1,6 +1,7 @@
 <script>
     import Senators from "./Senators.svelte";
     import SenatorCard from "./Senator-Card.svelte";
+    import SenatorCluster from "./Senator-Cluster.svelte";
     import Papa from 'papaparse';
 
     export const prerender = true;
@@ -43,6 +44,9 @@
         <SenatorCard senator={senator_data} progress={progress}/>
     </div>
     <div class = 'container-child-right'><Senators on:selectSenator={handleSelectSenator}/></div>
+</div>
+<div>
+    <SenatorCluster/>
 </div>
 
 <style>
